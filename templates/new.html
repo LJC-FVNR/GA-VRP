@@ -1,0 +1,16 @@
+<!doctype html>
+<title>GA-VRP配送路线规划系统</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  <h1>GA-VRP配送路线规划系统</h1>
+  <div class=gad>
+    <a href="{{ url_for('process') }}" id="gad">计算路径</a>
+    <h3>用户坐标为{{ gadk }}</h3>
+  </div>
+  <img src="{{ url_for('static', filename=imagename1) }}" width="560" height="400" alt="scatter"/>
+  {% if cal==True %}
+  <h3>路线规划结果:</h3>
+  <img src="{{ url_for('static', filename=imagename2) }}" width="560" height="400" alt="route"/>
+  {% endif %}
+  {% block body %}{% endblock %}
+</div>

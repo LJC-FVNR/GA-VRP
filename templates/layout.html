@@ -1,0 +1,24 @@
+<!doctype html>
+<title>GA-VRP配送路线规划系统</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  <h1>GA-VRP配送路线规划系统</h1>
+  <div class=metanav>
+  {% if not session.logged_in %}
+    <a href="{{ url_for('login') }}">登入</a>
+  {% else %}
+    <a href="{{ url_for('logout') }}">登出</a>
+  {% endif %}
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% if not session.logged_in %}
+  {% else %}
+  <div class=gad>
+   <a href="{{ url_for('gad') }}" id="gad">路线</a>
+    <h3>{{ gadk }}</h3>
+  </div>
+  {% endif %}
+  {% block body %}{% endblock %}
+</div>
